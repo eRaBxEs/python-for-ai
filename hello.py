@@ -8,6 +8,22 @@ print(message + " World!")
 message = message.upper()
 print(message)
 
+# more string manipulations
+print(len(message))
+
+empty = ""
+print(len(empty))
+
+
+# Converting other types to string
+age = 25
+message = "I am "+ str(age) + " years old"
+print(message) 
+
+# Or use f-strings
+message = f"I am {age} years old"
+print(message)
+
 
 # This is a comment in python
 # called a single line comment: This is another comment
@@ -93,3 +109,16 @@ total = subtotal * 1.0625
 # Bad: States the obvious
 # Multiply subtotal by 1.0625
 total = subtotal * 1.0625
+
+
+# Check different types
+print(type(42))          # <class 'int'>
+print(type(3.14))        # <class 'float'>
+print(type("Hello"))     # <class 'str'>
+print(type(True))        # <class 'bool'>
+
+# Check variables
+age = 25
+name = "Alice"
+print(type(age))         # <class 'int'>
+print(type(name))        # <class 'str'>
