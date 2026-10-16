@@ -69,5 +69,27 @@ can_vote = age >= 18
 is_18 = age == 18
 
 
+# Quick demonstration of multiline comments with a simple function
+
+"""
+This is a multi-line comment.
+It can span several lines.
+Great for longer explanations.
+"""
+def calculate_tip(bill):
+    """
+    Calculate 20% tip for a restaurant bill.
+    Takes the bill amount and returns the tip.
+    """
+    return bill * 0.20
 
 
+# Good comments explain WHY, not WHAT:
+subtotal = 1000
+# Good: Explains why
+# Using 1.0625 because sales tax in CA is 6.25%
+total = subtotal * 1.0625
+
+# Bad: States the obvious
+# Multiply subtotal by 1.0625
+total = subtotal * 1.0625
