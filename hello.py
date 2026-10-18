@@ -122,3 +122,45 @@ age = 25
 name = "Alice"
 print(type(age))         # <class 'int'>
 print(type(name))        # <class 'str'>
+
+
+# Logical operators
+
+age = 25
+has_license = True
+drunk = True
+
+
+# AND - both must be true
+can_drive = age >= 16 and has_license
+print(can_drive)  # True
+
+can_drive = age >= 16 and has_license and not drunk
+print(can_drive)
+
+# OR - at least one must be true
+day = "Saturday"
+is_weekend = day == "Saturday" or day == "Sunday"
+print(is_weekend) # True
+
+# NOT - reverses the value
+is_adult = age >= 18
+is_child = not is_adult
+print(is_child) # False
+
+# Assignment shortcuts
+score, total = 7, 14
+
+# Instead of:
+score = score + 10
+
+total = total * 2
+
+# Write:
+score += 10
+print(score)
+total *= 2
+print(total)
+
+
+ 
