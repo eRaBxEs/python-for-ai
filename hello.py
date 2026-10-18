@@ -220,3 +220,56 @@ print(message.count("Python")) # 2 (number of times)
 new_message = message.replace("Python", "JavaScript")
 print(new_message) # "I love JavaScript programming with JavaScript"
 
+# Control flow
+temperature = 31
+
+if temperature > 30:
+    print("It's very hot!")
+elif temperature > 25:
+    print("It's hot!")
+else:
+    print("It's nice weather!")
+
+
+score = 85
+
+if score >= 90:
+    print("A - Excellent!")
+elif score >= 80:
+    print("B - Good job!")
+elif score >= 70:
+    print("C - Keep it up!")
+else:
+    print("F - Need improvement")
+
+
+# multiple condition
+age = 25
+has_license = True
+weekend = True
+holiday = True
+raining = False
+
+# Both must be True
+if age >= 18 and has_license:
+    print("You can drive!")
+
+# At least one must be True
+if weekend or holiday:
+    print("No work today!")
+
+# Reverse the condition
+if not raining:
+    print("Let's go outside!")
+
+# nested if statements
+has_tickets = True
+age = 15
+
+if has_tickets:
+    if age >= 18:
+        print("Enjoy the movie")
+    else:
+        print("Need adult supervision")
+else:
+    print("Buy a ticket first")
