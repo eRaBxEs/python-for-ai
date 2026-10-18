@@ -273,3 +273,33 @@ if has_tickets:
         print("Need adult supervision")
 else:
     print("Buy a ticket first")
+
+
+# For Loops
+for i in range(5):
+    print(i)
+
+for i in range(1, 6):
+    print(i)
+
+for i in range(0, 10, 2):
+    print(i)
+
+
+# loop through text
+name = "Python"
+for letter in name:
+    print(letter)
+    print(type(letter))
+
+# loop throgh a list
+colors = ["red", "blue", "green"]
+for color in colors:
+    print(f"I like {color}")
+
+# while loop
+count = 0
+while count < 5:
+    print(f"Count is {count}")
+    count = count + 1
+
