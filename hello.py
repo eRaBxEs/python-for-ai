@@ -372,3 +372,22 @@ print(numbers)              # [9, 5, 4, 3, 2, 1, 1]
 new_list = numbers.copy()   # Create a copy
 print(new_list)
 
+# Short intro to using List comprehension
+# It's dangerous to change list size while looping through
+
+#  Wroong way of filtering out an item in a list
+numbers = [1, 2, 3, 4]
+for num in numbers:
+    if num == 2:
+        numbers.remove(num) # Dangerous
+
+print(numbers)
+
+# Right way : using List comprehension
+numbers = [1, 2, 3, 4]
+numbers = [num for num in numbers if num!= 2] # List comprehension
+
+print(numbers)
+
+
+
