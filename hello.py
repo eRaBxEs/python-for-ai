@@ -389,5 +389,16 @@ numbers = [num for num in numbers if num!= 2] # List comprehension
 
 print(numbers)
 
+# Shallow copy issues:
+# Wrong both variables point to the same list
+list1 = [1, 2, 3]
+list2 = list1
+list2.append(4)
+print(list1) # [1, 2, 3, 4] - list1 - changed
 
+# Right - make a copy
+list1 = [1, 2, 3]
+list2 = list1.copy()
+list2.append(4)
+print(list1) # [1, 2, 3] - unchanged
 
