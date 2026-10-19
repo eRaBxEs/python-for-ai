@@ -417,3 +417,17 @@ print(person)
 
 del person["license"]
 
+# Accessing values in dictionaries
+person = {"name": "Alice", "age": 30, "city": "New York"}
+
+# Get values by key
+print(person["name"])       # "Alice"
+print(person["age"])        # 30
+print(person["job"])        # does not exist. so throws an error
+
+# Safer with get()
+print(person.get("job"))    # None (no error)
+print(person.get("job", "Unknown"))  # "Unknown" (default)
+print(person.get("name", "age"))
+
+
