@@ -303,3 +303,72 @@ while count < 5:
     print(f"Count is {count}")
     count = count + 1
 
+
+# Data Structure
+# Lists
+# Dictionaries
+# Tuples
+# Sets
+
+
+# Lists: all types of data with different types of types
+age = 25
+has_license = False
+my_list = ["Alice", 25, age, True, has_license]
+
+name = my_list[0]
+age = my_list[1]
+
+has_license = my_list[3]
+
+# Accessing items
+fruits = ["apple", "banana", "orange"]
+
+# Get items
+print(fruits[0])    # "apple" (first item)
+print(fruits[1])    # "banana"
+print(fruits[-1])   # "orange" (last item)
+print(fruits[-2])   # "banana" (second to last)
+
+# Slicing
+print(fruits[0:2])  # ["apple", "banana"]
+print(fruits[1:])   # ["banana", "orange"]
+
+
+# Changing list: lists are mutable
+
+fruits = ["apple", "banana", "orange"]
+
+# Change an item
+fruits[0] = "mango"
+print(fruits)  # ["mango", "banana", "orange"]
+
+# Add items
+fruits.append("grape")      # Add to end
+fruits.insert(1, "kiwi")    # Insert at position
+
+# Remove items
+fruits.remove("banana")     # Remove by value
+last = fruits.pop()        # Remove and return last
+del fruits[0]              # Remove by index
+
+
+# List methods
+numbers = [3, 2, 4, 1, 5, 9]
+
+# Information
+print(len(numbers))         # 6 (length)
+print(numbers.count(1))     # 2 (count occurrences)
+print(numbers.index(4))     # 2 (find position)
+
+# Sorting
+numbers.sort()              # Sort in place
+print(numbers)              #[1, 1, 3, 4, 5, 9]
+
+numbers.reverse()           # Reverse order
+print(numbers)              # [9, 5, 4, 3, 2, 1, 1]
+
+# Copy
+new_list = numbers.copy()   # Create a copy
+print(new_list)
+
