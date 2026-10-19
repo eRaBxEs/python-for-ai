@@ -462,3 +462,32 @@ if "name" in person:
 # Update multiple values
 person.update({"age": 31, "job": "Engineer"})
 print(person)
+
+
+# Nested dictionaries
+# Dictionary of dictionaries
+students = {
+    "alice": {"age": 20, "grade": "A"},
+    "bob": {"age": 21, "grade": "B"},
+    "charlie": {"age": 19, "grade": "A"}
+}
+
+# Access nested data
+print(students["alice"]["grade"])  # "A"
+
+# KeyError when key doesn't exist
+person = {"name": "Alice"}
+print(person["age"])
+
+# Right - use get()
+print(person.get("age"))
+print(person.get("age", 0)) # Returns 0 if missing
+
+# Wrong - lists can't be keys
+bad_dict = {[1, 2]: "value"} # TypeError!
+
+# Right - use immutable types
+good_dict = {(1, 2): "value"} # Tuple is OK
+print(good_dict)
+good_dict = {"1, 2": "value"} # String is OK
+print(good_dict)
