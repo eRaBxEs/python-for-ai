@@ -517,3 +517,43 @@ print(type(not_tuple))
 
 # Without parentheses (implicit)
 coordinates = 10, 20
+
+
+# Sets : to work with unique collections
+empty_set = set() # NOT {} - that's a dict!
+print(empty_set)
+
+# Add items to the empty_set
+# Wrong way to add items to an empty_set[0]= "book" empty_set[1]= "bag" empty_set[2]= "pen"
+
+# Add one item at a time with .add()
+empty_set.add("book")
+empty_set.add("bag")
+empty_set.add("pen")
+
+print(empty_set)          # {'book', 'bag', 'pen'}  (order is not guaranteed)
+
+# Sets : to work with unique collections
+empty_set2 = set() # NOT {} - that's a dict!
+print(empty_set2)
+
+# Add multiple items at once with .update()
+empty_set2.update(["book", "bag", "pen"])
+# or
+empty_set2.update({"book", "bag", "pen"})
+
+numbers = {1, 2, 3, 4, 5}
+print(type(numbers))
+
+
+numbers2 = {1, 2, 3, 4, 2} # 2 is said to occur twice
+print(type(numbers2)) # it's still a set
+print(numbers2) # The number printed are unique : {1, 2, 3, 4}
+
+# Set with values - both ways work
+numbers = {1, 2, 3, 4, 5}
+fruits = set(["apple", "banana", "orange"])
+
+# From a list (removes duplicates)
+scores = [85, 90, 85, 92, 90]
+unique_scores = set(scores)  # {85, 90, 92}
