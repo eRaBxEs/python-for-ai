@@ -491,3 +491,29 @@ good_dict = {(1, 2): "value"} # Tuple is OK
 print(good_dict)
 good_dict = {"1, 2": "value"} # String is OK
 print(good_dict)
+
+# Tuples are immutable
+
+# Creating tuples
+# Empty tuple
+empty = ()
+print(empty)
+# print(empty[0]) will throw an error
+
+# Tuple with items
+point = (3, 5)
+colors = ("red", "green", "blue")
+# Accessing members of a tuple
+print(colors)
+print(colors[0])
+for col in colors:
+    print(col)
+
+# Single item tuple needs comma!
+single = (42,)  # Note the comma
+type(single)
+not_tuple = (42)  # This is just 42 in parentheses
+print(type(not_tuple))
+
+# Without parentheses (implicit)
+coordinates = 10, 20
