@@ -557,3 +557,47 @@ fruits = set(["apple", "banana", "orange"])
 # From a list (removes duplicates)
 scores = [85, 90, 85, 92, 90]
 unique_scores = set(scores)  # {85, 90, 92}
+
+# Basic operations in sets
+colors = {"red", "blue"}
+
+# Add items
+colors.add("green")
+print(colors)  # {'red', 'blue', 'green'}
+
+# Remove items
+colors.remove("blue")    # Error if not found
+colors.discard("yellow") # No error if not found
+
+# Check membership
+if "red" in colors:
+    print("Red is available")
+
+
+# Remove duplicates from a list
+names = ["Alice", "Bob", "Alice", "Charlie", "Bob"] # list
+unique_names = list(set(names)) # using set to remove the duplicates and then making it back a list
+print(unique_names)  # ['Alice', 'Bob', 'Charlie']
+
+# Fast membership testing
+allowed_users = {"alice", "bob", "charlie"}
+
+if "alice" in allowed_users:  # Very fast!
+    print("Access granted")
+
+# Common mistakes
+# Empty set syntax
+# Wrong - creates empty dict
+empty = {}
+
+# Right - use set()
+empty = set()
+
+# Sets are unordered
+# Order is not guaranteed!
+numbers = {3, 1, 4, 1, 5}
+print(numbers)  # Could be any order
+
+# Use list if order matters
+ordered = [3, 1, 4, 1, 5]
+
