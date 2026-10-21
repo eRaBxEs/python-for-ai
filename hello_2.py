@@ -104,3 +104,94 @@ total = 0
 total = add_amounts(total, 10)
 total = add_amounts(total, 20)
 print(total) # 30
+
+
+# Parameters: passing data into your functions
+# Without parameters (inflexible)
+def greet_alice():
+    print("Hello, Alice!")
+
+# With parameters (flexible)
+def greet(name):
+    print(f"Hello, {name}!")
+
+# Now it works for anyone
+greet("Alice")
+greet("Bob")
+greet("Charlie")
+
+
+def greet_user(first_name, last_name):
+    print(f"Hello, {first_name} {last_name}")
+    pass
+
+greet_user("Dave", "Benard") # defalt use
+greet_user(last_name="Erabor", first_name="Henry") # swapping the argument/parameter
+
+# using a default value
+def greet_again(last_name, first_name="John"):
+    print(f"Hello, {first_name} {last_name}")
+    pass
+greet_again(last_name="Erabor")
+
+def greet_him(last_name = "Doe", first_name="John"):
+    print(f"Hello, {first_name} {last_name}")
+    pass
+
+greet_him()
+
+# overwrite the default argument
+greet_him(first_name="Jesus")
+
+# multiple parameters
+def introduce(name, age):
+    print(f"My name is {name}")
+    print(f"I am {age} years old")
+
+# Call with values
+introduce("Alice", 25)
+introduce("Bob", 30)
+
+def calculate_total(price, tax_rate, discount):
+    tax = price * tax_rate
+    final_price = price + tax - discount
+    print(f"Total: ${final_price}")
+
+# Order matters!
+calculate_total(100, 0.08, 10)  # $98
+
+# Keyword vs Positional arguments
+def create_profile(name, age, city):
+    print(f"{name}, {age}, from {city}")
+
+# Positional arguments (order matters)
+create_profile("Alice", 25, "NYC")
+
+# Keyword arguments (order doesn't matter)
+create_profile(city="NYC", age=25, name="Alice")
+create_profile(name="Bob", city="LA", age=30)
+
+# Common mistakes
+def greet(name, age):
+    print(f"Hi {name}, you're {age}")
+
+# Wrong - too few arguments
+greet("Alice")  # TypeError!
+
+# Wrong - too many arguments
+greet("Alice", 25, "NYC")  # TypeError!
+
+# Right
+greet("Alice", 25)
+
+# Wrong - don't use lists as defaults
+def add_item(item, list=[]):
+    list.append(item)
+    return list
+
+# Right - use None and create new list
+def add_item(item, list=None):
+    if list is None:
+        list = []
+    list.append(item)
+    return list
