@@ -195,3 +195,32 @@ def add_item(item, list=None):
         list = []
     list.append(item)
     return list
+
+
+counter = 0 # Global variable
+def increment():
+    counter # we failed to declare that we want modify (mutate) the global variable
+    counter += 1 # so this throws an error
+    pass
+
+increment()
+increment()
+print(counter) # 2
+
+
+
+discount = 10
+def calculate_total_again(price):
+    # You necessarily dont need to declare using global keyword to indicate that you want to use the global variable
+    # global discount is not needed because we are not modifying the value of the global discount, so no error.
+    tax_rate = 0.08
+
+    #Calculation
+    tax = price * tax_rate
+    final_price = price + tax - discount
+
+    # Print the final price
+    print(f"Total: ${final_price}")
+    pass
+
+calculate_total_again(price=100)
