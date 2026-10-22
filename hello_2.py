@@ -224,3 +224,70 @@ def calculate_total_again(price):
     pass
 
 calculate_total_again(price=100)
+
+# return statement
+
+def add_print(a, b):
+    print(a + b)
+
+add_print(a=5, b=10)
+
+def add_return(a, b):
+    return a + b
+
+result = add_return(a=5, b=10)
+print(f"The result is {result}") # The result is 15
+
+# use return to send value back from a function
+
+def calculate_area(width, height):
+    area = width * height
+    return area
+
+# Store the returned value
+room_area = calculate_area(10, 12)
+print(f"Room size: {room_area} sq ft")  # Room size: 120 sq ft
+
+# Return multiple values
+def simple_function():
+    numbers = [1, 2, 3, 4, 5]
+    first_number = numbers[0]
+    last_number = numbers[-1]
+    return first_number, last_number
+
+f, l = simple_function()
+print(f)
+print(l)
+
+# more on returning multiple values
+def get_min_max(numbers):
+    #print(type(numbers))
+    return min(numbers), max(numbers)
+
+# Get both values
+minimum, maximum = get_min_max([5, 2, 8, 1, 9])
+print(f"Min: {minimum}, Max: {maximum}")  # Min: 1, Max: 9
+
+# Or as a tuple
+result = get_min_max([5, 2, 8, 1, 9])
+print(result)  # (1, 9)
+
+# Functions without explicit return statements return None:
+def greet(name):
+    print(f"Hello, {name}!")
+    # No return statement
+
+result = greet("Alice")  # Prints: Hello, Alice!
+print(result)  # None
+
+# Common mistake
+# Wrong - prints instead of returning
+def multiply(a, b):
+    print(a * b)
+
+result = multiply(3, 4)  # Prints 12
+total = result + 10      # Error! result is None
+
+# Right - return the value
+def multiply(a, b):
+    return a * b
