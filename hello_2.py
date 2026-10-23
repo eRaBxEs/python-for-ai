@@ -355,3 +355,32 @@ from math import *
 # Sharing yyour project requiremnts
 #pip freeze > requirements.txt : list all your project's packages
 #pip install -r requirements.txt : to get printed all your project requirements on a text file
+
+# Using external packages
+
+# web requests
+import requests
+
+response = requests.get("https://api.example.com/data")
+data = response.json()
+
+# Data analysis
+import pandas as pd
+
+# Create a simple DataFrame
+data = {
+    'name': ['Alice', 'Bob', 'Charlie'],
+    'age': [25, 30, 35],
+    'city': ['NYC', 'LA', 'Chicago']
+}
+df = pd.DataFrame(data)
+print(df)
+
+# Common mistakes to avoid
+# Wrong - overwrites built-in
+import datetime
+datetime = "2024-01-01"  # Now module is gone!
+
+# Right - use different names
+import datetime
+date_string = "2024-01-01"
