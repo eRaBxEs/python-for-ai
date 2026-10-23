@@ -291,3 +291,67 @@ total = result + 10      # Error! result is None
 # Right - return the value
 def multiply(a, b):
     return a * b
+
+# Import packages
+# Pattern 1: Import the whole module
+import math
+# Now use: 
+math.sqrt(16)
+
+# Pattern 2: Import specific items from a module
+from math import sqrt, pi
+# Now use: 
+sqrt(16)
+
+import random
+
+number = random.randint(1, 10)
+choice = random.choice(["apple", "banana", "orange"])
+
+# Common built-in modules
+# Date and time
+import datetime
+today = datetime.date.today()
+print(today) # 2026-10-22
+
+# Operating system
+import os
+current_dir = os.getcwd()
+print(current_dir)
+
+# JSON data
+import json
+data = {"name": "Alice", "age": 30}
+json_string = json.dumps(data)
+
+# Import methods
+# Import entire module
+import math
+result = math.sqrt(16)
+
+# Import specific functions
+from math import sqrt, pi
+result = sqrt(16)
+radius = 25
+circle_area = pi * radius ** 2
+
+# Import with alias
+import pandas as pd
+df = pd.DataFrame(data)
+
+# Import everything (avoid this!)
+from math import *
+
+# Always ensure your virtual environment is activated before installing!
+# Install a package
+#pip install requests
+
+# Install specific version
+#pip install requests==2.28.0
+
+# Install multiple packages
+#pip install pandas numpy matplotlib
+
+# Sharing yyour project requiremnts
+#pip freeze > requirements.txt : list all your project's packages
+#pip install -r requirements.txt : to get printed all your project requirements on a text file
