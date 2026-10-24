@@ -420,3 +420,232 @@ tokyo_temp = get_weather(35.68, 139.69)
 print(f"Paris: {paris_temp}°C")
 print(f"London: {london_temp}°C")
 print(f"Tokyo: {tokyo_temp}°C")
+
+
+# Try and except
+# This will throw an error
+result = 10/0 # Zero Divison
+
+# use try and except to manage errors gracefully
+try:
+    result = 10/0 # Zero Divison
+except:
+    print("Hi there!")
+
+
+# Catching specific errors
+# This keeps running even if file doesn't exist
+try:
+    with open('data.txt', 'r') as f:
+        content = f.read()
+except FileNotFoundError:
+    print("Could not find data.txt")
+    content = "default data"
+print("Done!")  # Always reaches here
+
+# Multiplle error types:
+try:
+    # Read a number from a file
+    with open('number.txt', 'r') as f:
+        text = f.read()
+    number = int(text)
+    result = 100 / number
+    print(f"Result: {result}")
+except FileNotFoundError:
+    print("Could not find number.txt")
+except ValueError:
+    print("File doesn't contain a valid number")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+# Using the else clause:
+# Code in else runs only if no error happened:
+try:
+    with open('data.txt', 'r') as f:
+        data = f.read()
+except FileNotFoundError:
+    print("File not found")
+else:
+    # This only runs if the file was opened successfully
+    print(f"File has {len(data)} characters")
+
+
+# The finally clause
+# Code in finally always runs, error or not:
+try:
+    file = open('data.txt', 'r')
+    data = file.read()
+except FileNotFoundError:
+    print("File not found")
+finally:
+    # This always runs to clean up
+    if 'file' in locals() and not file.closed:
+        file.close()
+    print("Cleanup complete")
+
+# N.B: Don’t catch all errors with a bare except:. It hides problems and makes debugging harder. Always catch specific error types when possible.
+
+def process_data():
+    print("process_data ...")
+    pass
+
+
+def risky_operation():
+    print("risky_operation ...")
+    pass
+
+
+def critical_operation():
+    print("critical_operation ...") 
+
+# Common Mistake:
+
+# catching too broad exceptions:
+# Bad - catches everything
+try:
+    process_data()
+except:
+    pass  # Silent failure!
+
+# Good - specific error
+try:
+    process_data()
+except ValueError:
+    print("Invalid data format")
+
+# Empty except blocks
+# Bad - ignores the error
+try:
+    risky_operation()
+except ValueError:
+    pass
+
+# Good - at least log it
+try:
+    risky_operation()
+except ValueError:
+    print("Warning: Invalid value encountered")
+
+
+# Not re-raising critical errors
+# Bad - hides all errors
+try:
+    critical_operation()
+except Exception as e:
+    print(f"Error: {e}")
+
+# Good - log and re-raise
+try:
+    critical_operation()
+except Exception as e:
+    print(f"Critical error: {e}")
+    raise  # Let the error propagate
+
+
+# Common errors:
+# FileNotFoundError: happens when a file doesn't exist
+# This fails if file doesn't exist
+with open('missing.txt', 'r') as f:
+    content = f.read()
+
+# Fix:
+import os
+
+# Check first
+if os.path.exists('data.txt'):
+    with open('data.txt', 'r') as f:
+        content = f.read()
+else:
+    print("File not found")
+
+# Or use try-except
+try:
+    with open('data.txt', 'r') as f:
+        content = f.read()
+except FileNotFoundError:
+    content = ""  # Default value
+
+
+# ValueError: Happens when a value is wrong type or format:
+
+# These cause ValueError
+int("hello")        # Can't convert to number
+int("12.5")         # int() doesn't accept decimals
+list.remove("x")    # Item not in list
+
+# Fix:
+# Validate user input
+try:
+    age = int(input("Age: "))
+except ValueError:
+    print("Please enter a number")
+
+# Convert carefully
+float_str = "12.5"
+number = int(float(float_str))  # Convert to float first
+
+# KeyError: Happens when a dictionary key doesn’t exist:
+user = {"name": "Alice", "age": 25}
+print(user["email"])  # KeyError - no email key
+
+# Fix:
+# Check if key exists
+if "email" in user:
+    print(user["email"])
+
+# Use get() with default
+email = user.get("email", "no-email@example.com")
+
+# Or handle the error
+try:
+    print(user["email"])
+except KeyError:
+    print("Email not found")
+
+# IndexError: Happens when accessing invalid list position:
+numbers = [1, 2, 3]
+print(numbers[5])  # IndexError - only 3 items
+
+# Fix:
+# Check length first
+if len(numbers) > 5:
+    print(numbers[5])
+
+# Use negative indexing carefully
+last_item = numbers[-1] if numbers else None
+
+# Handle the error
+try:
+    print(numbers[5])
+except IndexError:
+    print("List too short")
+
+
+# TypeError: Happens when operations use wrong types:
+# These cause TypeError
+value = "hello" + 5            # Can't add string and number
+len(42)                # Numbers don't have length
+int([1, 2, 3])         # Can't convert list to int
+
+# Fix:
+# Convert types explicitly
+"hello" + str(5)       # "hello5"
+str(42)                # "42"
+
+# Check type first
+if isinstance(value, str):
+    print(len(value))
+
+# AttributeError: Happens when accessing non-existent attributes:
+text = "hello"
+text.append("!")  # AttributeError - strings don't have append
+
+# Use correct methods
+text = "hello"
+text = text + "!"  # Strings are immutable
+
+# Check if attribute exists
+if hasattr(text, 'append'):
+    text.append("!")
+
+
