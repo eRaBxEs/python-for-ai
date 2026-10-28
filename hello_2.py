@@ -762,3 +762,44 @@ model = TextModel(model_name="gpt-3.5-turbo", max_length=100)
 result = model.process_text(text="Hello world")
 print(result)  # Loading gpt-3.5-turbo...
                # Processed: Hello world
+
+# Common mistakes
+# Forgetting to call super().init()
+# Wrong - parent's __init__ not called
+class Parent:
+    pass
+
+class Child(Parent):
+    def __init__(self, name):
+        self.name = name  # Parent attributes missing!
+
+# Right - call parent's __init__
+class Child(Parent):
+    def __init__(self, name):
+        super().__init__()
+        self.name = name
+
+
+# Wrong inheritance relationship
+# Wrong - Rectangle is not a Square!
+class Square:
+    def __init__(self, size):
+        self.size = size
+
+class Rectangle(Square):  # Doesn't make sense
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+
+# Better - they're both shapes
+class Shape:
+    pass
+
+class Square(Shape):
+    def __init__(self, size):
+        self.size = size
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
