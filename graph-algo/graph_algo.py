@@ -12,9 +12,23 @@ def depthFirstPrint(graph, source):
 
 
 
+def depthFirstRecursivePrint(graph, source):
+    print(source)
+    for neighbour in graph[source]:
+        depthFirstRecursivePrint(graph, neighbour)
+
 
 graph = {
     "a": ["c", "b"],
+    "b": ["d"],
+    "c": ["e"],
+    "d": ["f"],
+    "e": [],
+    "f": []
+}
+
+graph_2 = {
+    "a": ["b", "c"],
     "b": ["d"],
     "c": ["e"],
     "d": ["f"],
@@ -32,5 +46,8 @@ graph = {
 
 
 depthFirstPrint(graph, "a")
+print("===================================")
+print("using recursion!")
+depthFirstRecursivePrint(graph_2, "a")
 
 
