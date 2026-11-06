@@ -74,3 +74,38 @@ breadthFirstPrint(graph, "a")
 
 
 
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+from collections import deque
+
+def solution(N, A, B, H):
+    # structure out the graph; an empty list of list
+    graph = [[] for _ in range(N)]
+    for u, v in zip(A, B):
+        graph[u].append(v)
+        graph[v].append(u)
+
+    # consider every district to be infinitely far away
+    dist = [float('inf')] * N
+
+    # create queue for BFS
+    queue = deque()
+ 
+    # start BFS from all hospitals at the same time
+    for hospital in H:
+        dist[hospital] = 0
+        queue.append(hospital)
+    
+    # Multi source BFS traversal
+    while queue:
+        current = queue.popleft()
+
+        # visit all neighbouring districts
+        for neighbour in graph[current]:
+            if dist[neighbour] == float('inf'):
+                dist[neighbour] = dist[current] + 1
+                queue.append(neighbour)
+    # is any district unreachable in terms of it being infinitely far away
+    if any(d == float('inf') for d in dist):
+        return -1
+    return max(dist)
